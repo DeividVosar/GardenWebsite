@@ -1,16 +1,42 @@
-# React + Vite
+# GardenWebsite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive garden map prototype.
+Learning course i created for myself trying to learn both frontend and backend while creating a solution for my personal issue of constantly forgetting what exists where and when was the last time i took care of it.
+This repo currently showcases the early **frontend-only** version. Backend persistence is in progress and not connected yet.
 
-Currently, two official plugins are available:
+## Live demo
+- GitHub Pages: https://deividvosar.github.io/GardenWebsite/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What works right now
 
-## React Compiler
+- Background garden image shown as the map
+- Zoom + pan
+- Mode switch (top-left):
+  - **View**: inspect existing pins
+  - **Edit**: add and move pins
+- Pin popup:
+  - **Mark as watered** updates the plant’s “last watered” date to now
+  - **More details** opens the details panel
+- Details panel:
+  - View/edit some fields
+  - Basic validation (e.g. name/type can’t be empty; non-numeric frequency resets to “unknown”)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Current focus
+- Connecting the backend for real data persistence (save/load maps + pins)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech
+- Frontend: React + Vite
+- Hosting: GitHub Pages
+- Backend (In progress): Java + Spring Boot (REST API), PostgreSQL(Databse), Flyway(Migrations)
+
+## Future plans (Very cut down and top level...Seriously i have hundreds of ideas in my own notepad)
+- Calendar / task list view (what needs doing,upcoming tasks etc)
+- Multi-map support (outside, greenhouse, indoor floors)
+- Plant care tracking: watering + fertilising + seasonal tasks
+- Status indicators on pins (ok / soon / urgent)
+- Editable & Custom fields per plant (User own created and fully customisable fields)
+- Notifications/reminders
+- Mobile version (Because who checks their outdoor garden while sitting indoors)
+- Multi-user/Multi device sync (For sharing with your partner or having the same view on mobile and pc)
+
