@@ -1,0 +1,14 @@
+.zoomable-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+}
+
+.zoomable-img {
+  user-select: none;
+  pointer-events: none;
+  max-width: none;
+  max-height: none;
+}
