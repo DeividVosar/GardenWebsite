@@ -1,0 +1,129 @@
+/* ===== Panel container ===== */
+.detailsPanel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 340px;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.98);
+  color: #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+.detailsHeader {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.detailsTitle {
+  font-weight: 700;
+}
+
+.detailsActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.detailsCloseBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #eee;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* ===== Errors ===== */
+.detailsServerError {
+  padding: 0 16px 8px 16px;
+  color: rgb(255, 77, 77);
+}
+
+/* ===== Scroll area ===== */
+.detailsScroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.detailsBody {
+  margin-top: 8px;
+}
+
+/* ===== Sections ===== */
+.detailsSection {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.detailsSectionTitle {
+  font-weight: 650;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.detailsSectionMuted {
+  opacity: 0.75;
+}
+
+/* ===== Rows ===== */
+.detailsRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+  font-size: 13px;
+}
+
+.detailsLabel {
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.detailsValue {
+  text-align: right;
+  word-break: break-word;
+}
+
+.detailsInlineSuffix {
+  margin-left: 8px;
+  opacity: 0.9;
+}
+
+/* ===== Inputs ===== */
+.inputError {
+  outline: 2px solid rgb(255, 77, 77);
+  border-radius: 4px;
+}
+
+.errorText {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* ===== Delete ===== */
+.deleteBlock {
+  margin-top: 24px;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dangerButton {
+  width: 100%;
+  background: #b00020;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
