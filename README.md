@@ -2,10 +2,27 @@
 
 Interactive garden map prototype.
 Learning course i created for myself trying to learn both frontend and backend while creating a solution for my personal issue of constantly forgetting what exists where and when was the last time i took care of it.
-This repo currently showcases the early and very barebones version.
+The current state of the project is pretty barebones and at an early phase.
 
 ## Live demo
 - GitHub Pages: https://deividvosar.github.io/GardenWebsite/
+
+## Repositories
+- **Frontend (this repo):** React + Vite, hosted on GitHub Pages
+- **Backend API repo:** Java + Spring Boot (REST)
+  - Github repo: https://github.com/DeividVosar/GardenWebsite-Backend
+
+## Hosting / Infrastructure
+- **Frontend:** GitHub Pages
+- **Backend:** Render (free tier)
+- **Database:** Neon (PostgreSQL, free tier)
+
+### Free-tier limitation (important)
+Render + Neon can go to sleep when idle.  
+That means the **first load after inactivity can be slow** (cold start).
+
+Render/Neon can go to sleep when idle, so the **first load after inactivity may take a bit**.
+The UI shows **“Waking server…”** until pins load.
 
 ## What works right now
 
@@ -22,13 +39,12 @@ This repo currently showcases the early and very barebones version.
   - Basic validation (e.g. name/type can’t be empty; non-numeric frequency resets to “unknown”)
 
 
-## Current focus
-- Connecting the backend for real data persistence (save/load maps + pins)
-
 ## Tech
 - Frontend: React + Vite
-- Hosting: GitHub Pages
-- Backend (In progress): Java + Spring Boot (REST API), PostgreSQL(Databse), Flyway(Migrations)
+- Backend: Java + Spring Boot (REST API)
+- Hosting: GitHub Pages (Frontend) + Render (backend)
+- Database: PostgreSQL (Neon)
+
 
 ## Future plans (Very cut down and top level...Seriously i have hundreds of ideas in my own notepad)
 - Calendar / task list view (what needs doing,upcoming tasks etc)
