@@ -238,9 +238,9 @@ function App() {
       {(isLoadingPins && showWakeup) && (
         <div className="wakeupOverlay">
           <div className="wakeupCard">
-            <div className="wakeupTitle">Waking server…</div>
+            <div className="wakeupTitle">Waking up the backend server…</div>
             <div className="wakeupText">
-              First load can take a bit on free hosting. Pins will appear automatically.
+              First load can take a bit of time due to me using free backend hosting. I am sorry but you are going to have to give it some time to warm up (Up to a minute), Once its ready this message will disappear and the pins will appear automatically.
             </div>
           </div>
         </div>
