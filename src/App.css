@@ -35,3 +35,49 @@ html, body, #root {
   text-shadow: 0 1px 2px rgba(0,0,0,0.9);
   max-width: 420px;
 }
+
+.wakeupOverlay {
+  position: absolute;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+}
+
+.wakeupCard {
+  width: min(520px, calc(100% - 32px));
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 16px 18px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.wakeupTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.wakeupText {
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.wakeupBtn {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  cursor: pointer;
+}
+.wakeupBtn:hover {
+  background: rgba(255,255,255,0.12);
+}

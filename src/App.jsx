@@ -37,6 +37,9 @@ function App() {
   const [pins, setPins] = useState([]);
   const [selectedPinId, setSelectedPinId] = useState(null);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [isLoadingPins, setIsLoadingPins] = useState(true);
+  const [showWakeup, setShowWakeup] = useState(false);
+  const [loadError, setLoadError] = useState(null);
 
   // Used by PinLayer to render pins based on the latest known transform.
   const [transformState, setTransformState] = useState({
@@ -191,17 +194,33 @@ function App() {
   useEffect(() => {
     let cancelled = false;
 
+    setIsLoadingPins(true);
+    setLoadError(null);
+
+    // Only show the "waking up" overlay if it's taking a moment (avoids flicker).
+    const wakeTimer = setTimeout(() => {
+      if (!cancelled) setShowWakeup(true);
+    }, 600);
+
     (async () => {
       try {
-        const data = await listPins(MAP_ID);
+        const data = await listPins(MAP_ID); // Wake the backend
         if (!cancelled) setPins(data);
       } catch (e) {
         console.error("Failed to load pins:", e);
+        if (!cancelled) setLoadError("Server is waking up (or down). Refresh in a moment.");
+      } finally {
+        clearTimeout(wakeTimer);
+        if (!cancelled) {
+          setIsLoadingPins(false);
+          setShowWakeup(false);
+        }
       }
     })();
 
     return () => {
       cancelled = true;
+      clearTimeout(wakeTimer);
     };
   }, []);
 
@@ -214,6 +233,29 @@ function App() {
           onUpdatePin={handleUpdatePin}
           onDeletePin={handleDeletePin}
         />
+      )}
+
+      {(isLoadingPins && showWakeup) && (
+        <div className="wakeupOverlay">
+          <div className="wakeupCard">
+            <div className="wakeupTitle">Waking server…</div>
+            <div className="wakeupText">
+              First load can take a bit on free hosting. Pins will appear automatically.
+            </div>
+          </div>
+        </div>
+      )}
+
+      {loadError && (
+        <div className="wakeupOverlay">
+          <div className="wakeupCard">
+            <div className="wakeupTitle">Couldn’t load pins</div>
+            <div className="wakeupText">{loadError}</div>
+            <button className="wakeupBtn" onClick={() => window.location.reload()}>
+              Refresh
+            </button>
+          </div>
+        </div>
       )}
 
       <div className="toolbar">
